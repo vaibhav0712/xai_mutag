@@ -1,0 +1,683 @@
+[
+    {
+        "per_molecule_results": [
+            {
+                "molecule_id": "d107",
+                "predicted_class": 1,
+                "true_class": 1,
+                "fidelity_pos": 0.9236848428845406,
+                "fidelity_neg": 0.1330127716064453,
+                "unfaithfulness": 0.19176459312438965,
+                "sparsity": 0.9360189573459716
+            },
+            {
+                "molecule_id": "d108",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.7669407427310944,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.0083848237991333,
+                "sparsity": 0.7191011235955056
+            },
+            {
+                "molecule_id": "d11",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.6771955639123917,
+                "fidelity_neg": 0.06343215703964233,
+                "unfaithfulness": 0.07158899307250977,
+                "sparsity": 0.6666666666666667
+            },
+            {
+                "molecule_id": "d112",
+                "predicted_class": 1,
+                "true_class": 1,
+                "fidelity_pos": 0.7860566675662994,
+                "fidelity_neg": 0.007326960563659668,
+                "unfaithfulness": 0.0951882004737854,
+                "sparsity": 0.7578947368421053
+            },
+            {
+                "molecule_id": "d120",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.8450581878423691,
+                "fidelity_neg": 0.020019829273223877,
+                "unfaithfulness": 0.03958529233932495,
+                "sparsity": 0.38888888888888884
+            },
+            {
+                "molecule_id": "d123",
+                "predicted_class": 1,
+                "true_class": 1,
+                "fidelity_pos": 0.7387068793177605,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.005202054977416992,
+                "sparsity": 0.6986301369863014
+            },
+            {
+                "molecule_id": "d127",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.6878724247217178,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.006448090076446533,
+                "sparsity": 0.5238095238095238
+            },
+            {
+                "molecule_id": "d129",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.6062796339392662,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.036155104637145996,
+                "sparsity": 0.38235294117647056
+            },
+            {
+                "molecule_id": "d131",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.672936737537384,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.02269899845123291,
+                "sparsity": 0.5925925925925926
+            },
+            {
+                "molecule_id": "d134",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.8682593703269958,
+                "fidelity_neg": 0.09312945604324341,
+                "unfaithfulness": 0.16342324018478394,
+                "sparsity": 0.38888888888888884
+            },
+            {
+                "molecule_id": "d136",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.5014478862285614,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.0747525691986084,
+                "sparsity": 0.640625
+            },
+            {
+                "molecule_id": "d148",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.662851270288229,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.012704670429229736,
+                "sparsity": 0.6140350877192983
+            },
+            {
+                "molecule_id": "d15",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.7412583231925964,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.0013734102249145508,
+                "sparsity": 0.752808988764045
+            },
+            {
+                "molecule_id": "d163",
+                "predicted_class": 1,
+                "true_class": 1,
+                "fidelity_pos": 0.4656490981578827,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.01158517599105835,
+                "sparsity": 0.7142857142857143
+            },
+            {
+                "molecule_id": "d169",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.7998172491788864,
+                "fidelity_neg": 0.07445305585861206,
+                "unfaithfulness": 0.1308155655860901,
+                "sparsity": 0.41025641025641024
+            },
+            {
+                "molecule_id": "d17",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.6220009475946426,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.04905754327774048,
+                "sparsity": 0.6764705882352942
+            },
+            {
+                "molecule_id": "d173",
+                "predicted_class": 1,
+                "true_class": 1,
+                "fidelity_pos": 0.8805263116955757,
+                "fidelity_neg": 0.029115378856658936,
+                "unfaithfulness": 0.16248011589050293,
+                "sparsity": 0.8695652173913043
+            },
+            {
+                "molecule_id": "d179",
+                "predicted_class": 1,
+                "true_class": 1,
+                "fidelity_pos": 0.44671540707349777,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.1401779055595398,
+                "sparsity": 0.7777777777777778
+            },
+            {
+                "molecule_id": "d193",
+                "predicted_class": 1,
+                "true_class": 1,
+                "fidelity_pos": 0.7378734648227692,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.004252016544342041,
+                "sparsity": 0.5238095238095238
+            },
+            {
+                "molecule_id": "d20",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.6385117024183273,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.003020942211151123,
+                "sparsity": 0.6666666666666667
+            },
+            {
+                "molecule_id": "d226",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.7298710346221924,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 7.88569450378418e-05,
+                "sparsity": 0.47619047619047616
+            },
+            {
+                "molecule_id": "d227",
+                "predicted_class": 1,
+                "true_class": 1,
+                "fidelity_pos": 0.7084850892424583,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.009427249431610107,
+                "sparsity": 0.4193548387096774
+            },
+            {
+                "molecule_id": "d228",
+                "predicted_class": 1,
+                "true_class": 1,
+                "fidelity_pos": 0.47765395045280457,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.11181271076202393,
+                "sparsity": 0.2272727272727273
+            },
+            {
+                "molecule_id": "d231",
+                "predicted_class": 1,
+                "true_class": 1,
+                "fidelity_pos": 0.878850981593132,
+                "fidelity_neg": 0.0620574951171875,
+                "unfaithfulness": 0.14755558967590332,
+                "sparsity": 0.9096989966555185
+            },
+            {
+                "molecule_id": "d23_1",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.8016595542430878,
+                "fidelity_neg": 0.0762137770652771,
+                "unfaithfulness": 0.09625470638275146,
+                "sparsity": 0.7469879518072289
+            },
+            {
+                "molecule_id": "d244",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.6701796501874924,
+                "fidelity_neg": 0.0034843087196350098,
+                "unfaithfulness": 0.021429061889648438,
+                "sparsity": 0.43243243243243246
+            },
+            {
+                "molecule_id": "d253",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.6321526765823364,
+                "fidelity_neg": 0.022813260555267334,
+                "unfaithfulness": 0.021131575107574463,
+                "sparsity": 0.5217391304347826
+            },
+            {
+                "molecule_id": "d278",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.7210612446069717,
+                "fidelity_neg": 0.05429571866989136,
+                "unfaithfulness": 0.05025893449783325,
+                "sparsity": 0.7950819672131147
+            },
+            {
+                "molecule_id": "d285",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.45350755006074905,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.09627443552017212,
+                "sparsity": 0.4418604651162791
+            },
+            {
+                "molecule_id": "d30",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.7960906028747559,
+                "fidelity_neg": 0.04177749156951904,
+                "unfaithfulness": 0.0568242073059082,
+                "sparsity": 0.47619047619047616
+            },
+            {
+                "molecule_id": "d305",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.7689090371131897,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.0028600692749023438,
+                "sparsity": 0.7
+            },
+            {
+                "molecule_id": "d315",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.6596158593893051,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.002512633800506592,
+                "sparsity": 0.7938144329896908
+            },
+            {
+                "molecule_id": "d321",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.7404916882514954,
+                "fidelity_neg": 0.040312767028808594,
+                "unfaithfulness": 0.146797776222229,
+                "sparsity": 0.0
+            },
+            {
+                "molecule_id": "d323",
+                "predicted_class": 1,
+                "true_class": 1,
+                "fidelity_pos": 0.6403813362121582,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.08039265871047974,
+                "sparsity": 0.7767857142857143
+            },
+            {
+                "molecule_id": "d326",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.7123918682336807,
+                "fidelity_neg": 0.02542412281036377,
+                "unfaithfulness": 0.027778923511505127,
+                "sparsity": 0.6666666666666667
+            },
+            {
+                "molecule_id": "d327",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.6877878680825233,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.0007357597351074219,
+                "sparsity": 0.8307692307692307
+            },
+            {
+                "molecule_id": "d329",
+                "predicted_class": 1,
+                "true_class": 1,
+                "fidelity_pos": 0.757767491042614,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.0072920918464660645,
+                "sparsity": 0.8969465648854962
+            },
+            {
+                "molecule_id": "d330",
+                "predicted_class": 1,
+                "true_class": 1,
+                "fidelity_pos": 0.7866873815655708,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.0004876852035522461,
+                "sparsity": 0.9051094890510949
+            },
+            {
+                "molecule_id": "d331",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.4791547991335392,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.07993870973587036,
+                "sparsity": 0.5283018867924528
+            },
+            {
+                "molecule_id": "d335",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.6611743941903114,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.004881322383880615,
+                "sparsity": 0.5416666666666667
+            },
+            {
+                "molecule_id": "d336",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.6616475060582161,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.000686943531036377,
+                "sparsity": 0.5925925925925926
+            },
+            {
+                "molecule_id": "d38",
+                "predicted_class": 1,
+                "true_class": 1,
+                "fidelity_pos": 0.6234714612364769,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.01764369010925293,
+                "sparsity": 0.6666666666666667
+            },
+            {
+                "molecule_id": "d40",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.7542204260826111,
+                "fidelity_neg": 0.04738956689834595,
+                "unfaithfulness": 0.05087769031524658,
+                "sparsity": 0.752808988764045
+            },
+            {
+                "molecule_id": "d41",
+                "predicted_class": 1,
+                "true_class": 1,
+                "fidelity_pos": 0.5294942706823349,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.09764254093170166,
+                "sparsity": 0.7863247863247863
+            },
+            {
+                "molecule_id": "d45",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.6262773275375366,
+                "fidelity_neg": 0.016163110733032227,
+                "unfaithfulness": 0.02643030881881714,
+                "sparsity": 0.5416666666666667
+            },
+            {
+                "molecule_id": "d46",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.6767994314432144,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.07111632823944092,
+                "sparsity": 0.5660377358490566
+            },
+            {
+                "molecule_id": "d49",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.5842105597257614,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.0017123222351074219,
+                "sparsity": 0.5686274509803921
+            },
+            {
+                "molecule_id": "d61",
+                "predicted_class": 1,
+                "true_class": 1,
+                "fidelity_pos": 0.672025553882122,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.0014704465866088867,
+                "sparsity": 0.7395833333333333
+            },
+            {
+                "molecule_id": "d7",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.6783111169934273,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.014076173305511475,
+                "sparsity": 0.8225806451612903
+            },
+            {
+                "molecule_id": "d74",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.7964112162590027,
+                "fidelity_neg": 0.07221293449401855,
+                "unfaithfulness": 0.08835572004318237,
+                "sparsity": 0.725
+            },
+            {
+                "molecule_id": "d75",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.7078839689493179,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.008769690990447998,
+                "sparsity": 0.631578947368421
+            },
+            {
+                "molecule_id": "d76",
+                "predicted_class": 1,
+                "true_class": 1,
+                "fidelity_pos": 0.7728890031576157,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.005823791027069092,
+                "sparsity": 0.8076923076923077
+            },
+            {
+                "molecule_id": "d78",
+                "predicted_class": 1,
+                "true_class": 1,
+                "fidelity_pos": 0.4920164719223976,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.09517776966094971,
+                "sparsity": 0.7777777777777778
+            },
+            {
+                "molecule_id": "d83",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.681620717048645,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.008382201194763184,
+                "sparsity": 0.6140350877192983
+            },
+            {
+                "molecule_id": "d85_1",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.7934847921133041,
+                "fidelity_neg": 0.03639572858810425,
+                "unfaithfulness": 0.057220637798309326,
+                "sparsity": 0.6
+            },
+            {
+                "molecule_id": "d97",
+                "predicted_class": 0,
+                "true_class": 0,
+                "fidelity_pos": 0.6144268363714218,
+                "fidelity_neg": 0.0,
+                "unfaithfulness": 0.057679057121276855,
+                "sparsity": 0.794392523364486
+            }
+        ],
+        "averages": {
+            "fidelity_pos": 0.6874769183674029,
+            "fidelity_neg": 0.01641124806233815,
+            "unfaithfulness": 0.04997231385537556,
+            "sparsity": 0.6388460902873178
+        },
+        "top_influential_relations": [
+            {
+                "relation_type": "Bond-1",
+                "accumulated_weight": 417.61952609568834,
+                "frequency": 476
+            },
+            {
+                "relation_type": "Bond-7",
+                "accumulated_weight": 41.179914593696594,
+                "frequency": 46
+            },
+            {
+                "relation_type": "Bond-2",
+                "accumulated_weight": 28.06387358158827,
+                "frequency": 32
+            },
+            {
+                "relation_type": "Bond-3",
+                "accumulated_weight": 1.7634434700012207,
+                "frequency": 2
+            }
+        ],
+        "top_influential_nodes": [
+            {
+                "node_type": "Carbon-10",
+                "accumulated_weight": 118.97896709293127,
+                "frequency": 237
+            },
+            {
+                "node_type": "Carbon-22",
+                "accumulated_weight": 34.23638843744993,
+                "frequency": 229
+            },
+            {
+                "node_type": "Hydrogen-3",
+                "accumulated_weight": 32.699060909450054,
+                "frequency": 197
+            },
+            {
+                "node_type": "Hydrogen-1",
+                "accumulated_weight": 29.40838597714901,
+                "frequency": 81
+            },
+            {
+                "node_type": "Chlorine-93",
+                "accumulated_weight": 20.785002499818802,
+                "frequency": 42
+            },
+            {
+                "node_type": "Nitrogen-32",
+                "accumulated_weight": 17.06855059415102,
+                "frequency": 127
+            },
+            {
+                "node_type": "Carbon-27",
+                "accumulated_weight": 7.0896963477134705,
+                "frequency": 9
+            },
+            {
+                "node_type": "Nitrogen-38",
+                "accumulated_weight": 7.023074463009834,
+                "frequency": 16
+            },
+            {
+                "node_type": "Sulfur-77",
+                "accumulated_weight": 6.086573213338852,
+                "frequency": 8
+            },
+            {
+                "node_type": "Carbon-14",
+                "accumulated_weight": 5.560222253203392,
+                "frequency": 21
+            },
+            {
+                "node_type": "Oxygen-40",
+                "accumulated_weight": 4.957758322358131,
+                "frequency": 25
+            },
+            {
+                "node_type": "Oxygen-50",
+                "accumulated_weight": 4.625317871570587,
+                "frequency": 17
+            },
+            {
+                "node_type": "Nitrogen-34",
+                "accumulated_weight": 3.718910038471222,
+                "frequency": 5
+            },
+            {
+                "node_type": "Oxygen-45",
+                "accumulated_weight": 3.5659034103155136,
+                "frequency": 25
+            },
+            {
+                "node_type": "Hydrogen-8",
+                "accumulated_weight": 3.3626653850078583,
+                "frequency": 9
+            },
+            {
+                "node_type": "Carbon-16",
+                "accumulated_weight": 3.2062795609235764,
+                "frequency": 13
+            },
+            {
+                "node_type": "Sulfur-78",
+                "accumulated_weight": 3.0083084106445312,
+                "frequency": 4
+            },
+            {
+                "node_type": "Nitrogen-36",
+                "accumulated_weight": 2.499506950378418,
+                "frequency": 3
+            },
+            {
+                "node_type": "Oxygen-51",
+                "accumulated_weight": 2.494217872619629,
+                "frequency": 4
+            },
+            {
+                "node_type": "Nitrogen-31",
+                "accumulated_weight": 1.0086250007152557,
+                "frequency": 6
+            },
+            {
+                "node_type": "Bromine-94",
+                "accumulated_weight": 0.9953271597623825,
+                "frequency": 6
+            },
+            {
+                "node_type": "Oxygen-49",
+                "accumulated_weight": 0.9951932430267334,
+                "frequency": 6
+            },
+            {
+                "node_type": "Carbon-191",
+                "accumulated_weight": 0.9300727099180222,
+                "frequency": 7
+            },
+            {
+                "node_type": "Phosphorus-61",
+                "accumulated_weight": 0.7251297384500504,
+                "frequency": 6
+            },
+            {
+                "node_type": "Carbon-21",
+                "accumulated_weight": 0.5388187766075134,
+                "frequency": 3
+            },
+            {
+                "node_type": "Carbon-26",
+                "accumulated_weight": 0.3807113468647003,
+                "frequency": 2
+            },
+            {
+                "node_type": "Nitrogen-499",
+                "accumulated_weight": 0.31602033972740173,
+                "frequency": 2
+            },
+            {
+                "node_type": "Sodium-81",
+                "accumulated_weight": 0.28028637170791626,
+                "frequency": 2
+            }
+        ],
+        "num_correctly_classified": 56,
+        "total_test": 68,
+        "seed": 42
+    }
+]

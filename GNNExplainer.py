@@ -1,0 +1,285 @@
+import os
+
+# needed to setup for local file testing.
+os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"
+
+from torch_geometric.nn import FastRGCNConv, global_mean_pool
+from torch_geometric.explain import Explainer, GNNExplainer
+import torch.nn.functional as F
+from rdflib import Graph
+import numpy as np
+import argparse
+import random
+import torch
+import json
+import time
+
+from config import PYG_DATASET_PATH, RDF_PATH, MODEL_CHECKPOINT_PATH, PAYLOAD_PATH
+
+
+def set_seed(seed=42):
+    # IGNORE : again setting same seed because in dashboard pipeline it was causing some issues.
+    os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:8"
+    os.environ["PYTHONHASHSEED"] = str(seed)
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    try:
+        torch.use_deterministic_algorithms(True)
+    except Exception:
+        pass
+
+
+# Model definition
+class MutagenicityGNN(torch.nn.Module):
+    def __init__(self, in_channels, num_relations, hidden_channels=64, num_classes=2):
+        super().__init__()
+        self.conv1 = FastRGCNConv(in_channels, hidden_channels, num_relations)
+        self.conv2 = FastRGCNConv(hidden_channels, hidden_channels, num_relations)
+        self.lin = torch.nn.Linear(hidden_channels, num_classes)
+
+    def forward(self, x, edge_index, edge_type, batch):
+        x = F.relu(self.conv1(x, edge_index, edge_type))
+        x = F.relu(self.conv2(x, edge_index, edge_type))
+        x = global_mean_pool(x, batch)
+        return self.lin(x)
+
+
+# Helper function
+def short_name(uri):
+    """Extracts the human-readable string from an RDF URI."""
+    return str(uri).split("#")[-1]
+
+
+def initialize_xai_pipeline(model_checkpoint_path, dataset_path, rdf_path):
+    """
+    Loads all heavy assets into memory once.
+    Returns a dictionary of resources to be injected into frontend.
+    """
+    print("[INFO] Initializing XAI Pipeline...")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"Using device: {device}")
+
+    print("Loading PyG dataset...")
+    pyg_dataset = torch.load(dataset_path, weights_only=False)
+
+    unique_bonds = set()
+    for data in pyg_dataset:
+        for _, _, bond_str in data.bond_info:
+            unique_bonds.add(bond_str)
+    bond_encoder = {b: i for i, b in enumerate(sorted(unique_bonds))}
+    bond_decoder = {i: b for b, i in bond_encoder.items()}
+
+    # Load model checkpoints
+    print("[INFO] Loading model checkpoint...")
+    checkpoint = torch.load(model_checkpoint_path, map_location=device)
+    hparams = checkpoint["hyperparameters"]
+
+    base_model = MutagenicityGNN(
+        in_channels=hparams["in_channels"],
+        num_relations=hparams["num_relations"],
+        hidden_channels=hparams["hidden_channels"],
+        num_classes=hparams["num_classes"],
+    ).to(device)
+    base_model.load_state_dict(checkpoint["model_state_dict"])
+    base_model.eval()
+
+    print("[INFO] Initializing GNN Explainer...")
+    explainer = Explainer(
+        model=base_model,
+        algorithm=GNNExplainer(epochs=200, lr=0.01),
+        explanation_type="model",
+        node_mask_type="attributes",
+        edge_mask_type="object",  # <-- set to 'object' to compute edge importance
+        model_config=dict(
+            mode="multiclass_classification",
+            task_level="graph",
+            return_type="raw",
+        ),
+    )
+
+    print("[INFO] Parsing RDF Knowledge Graph...")
+    g = Graph()
+    g.parse(rdf_path, format="nt")
+
+    print("[INFO] Pipeline ready.")
+
+    return {
+        "model": base_model,
+        "explainer": explainer,
+        "pyg_dataset": pyg_dataset,
+        "rdf_graph": g,
+        "bond_decoder": bond_decoder,
+        "device": device,
+    }
+
+
+def generate_explanation_payload(molecule_uri_str, pipeline_resources):
+    """
+    Takes a molecule URI and the cached pipeline resources, returning JSON.
+    """
+    # Unpack resources
+    model = pipeline_resources["model"]
+    explainer = pipeline_resources["explainer"]
+    pyg_dataset = pipeline_resources["pyg_dataset"]
+    bond_decoder = pipeline_resources["bond_decoder"]
+    device = pipeline_resources["device"]
+
+    molecule_id = molecule_uri_str.split("#")[-1]
+
+    data_idx = next(
+        (i for i, d in enumerate(pyg_dataset) if d.molecule_id == molecule_id), None
+    )
+    if data_idx is None:
+        return json.dumps({"error": f"Molecule {molecule_id} not found."})
+
+    data = pyg_dataset[data_idx].to(device)
+    batch = torch.zeros(data.x.size(0), dtype=torch.long, device=device)
+
+    # Run prediction
+    with torch.no_grad():
+        logits = model(data.x, data.edge_index, data.edge_type, batch)
+        probabilities = F.softmax(logits, dim=1).squeeze()
+        predicted_class = probabilities.argmax().item()
+        confidence = probabilities[predicted_class].item()
+
+    # Reset seed before explanation to ensure determinism
+    set_seed(42)
+
+    # Generate Explanation
+    explanation = explainer(
+        x=data.x, edge_index=data.edge_index, edge_type=data.edge_type, batch=batch
+    )
+
+    # (Normalized) Node importance
+    if explanation.node_mask is not None:
+        raw_scores = explanation.node_mask.sum(dim=1)
+        max_score = raw_scores.max().item() if raw_scores.max().item() > 0 else 1.0
+        node_scores = (raw_scores / max_score).cpu().tolist()
+    else:
+        node_scores = [0.0] * data.num_nodes
+
+    # (Normalized) Edge importance
+    if explanation.edge_mask is not None:
+        max_edge_score = (
+            explanation.edge_mask.max().item()
+            if explanation.edge_mask.max().item() > 0
+            else 1.0
+        )
+        norm_edge_scores = (explanation.edge_mask / max_edge_score).cpu().tolist()
+    else:
+        norm_edge_scores = [0.0] * data.edge_index.size(1)
+
+    # Constructing node payload
+    nodes_payload = []
+    for i in range(data.num_nodes):
+        nodes_payload.append(
+            {
+                "id": i,
+                "uri": data.atom_info[i]["uri"],
+                "element": data.atom_info[i]["type"].split("-")[0],
+                "importance_score": round(node_scores[i], 4),
+            }
+        )
+
+    # Map bidirectional/directed edge scores to undirected edge scores by averaging
+    # Because two directional edges will be misleading for Visualization of molecules
+    edge_map = {}
+    for i in range(data.edge_index.size(1)):
+        src = data.edge_index[0, i].item()
+        dst = data.edge_index[1, i].item()
+        u, v = min(src, dst), max(src, dst)
+        if (u, v) not in edge_map:
+            edge_map[(u, v)] = []
+        edge_map[(u, v)].append(norm_edge_scores[i])
+
+    # Constructing edge payload
+    edges_payload = []
+    for i in range(data.edge_index.size(1)):
+        src = data.edge_index[0, i].item()
+        dst = data.edge_index[1, i].item()
+        if src < dst:
+            scores = edge_map.get((src, dst), [0.0])
+            avg_score = sum(scores) / len(scores) if len(scores) > 0 else 0.0
+            edges_payload.append(
+                {
+                    "source": src,
+                    "target": dst,
+                    "type": bond_decoder[data.edge_type[i].item()],
+                    "importance_score": round(avg_score, 4),
+                }
+            )
+
+    return json.dumps(
+        {
+            "metadata": {
+                "molecule_id": molecule_id,
+                "uri": molecule_uri_str,
+                "true_class": data.y.item(),
+            },
+            "prediction": {
+                "predicted_class": predicted_class,
+                "confidence": round(confidence, 4),
+            },
+            "graph": {"nodes": nodes_payload, "links": edges_payload},
+        }
+    )
+
+
+# Main execution
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser(
+        description="Generate GNNExplainer explanations for a given molecule URI"
+    )
+    parser.add_argument(
+        "--uri",
+        type=str,
+        default="http://dl-learner.org/carcinogenesis#d50",
+        help="Full URI of the molecule to explain (e.g. 'http://dl-learner.org/carcinogenesis#d50')",
+    )
+    args = parser.parse_args()
+
+    MODEL_PATH = MODEL_CHECKPOINT_PATH
+    DATASET_PATH = PYG_DATASET_PATH
+
+    print("Step 1: Testing Pipeline Initialization")
+
+    start_time = time.time()
+
+    try:
+        resources = initialize_xai_pipeline(MODEL_PATH, DATASET_PATH, RDF_PATH)
+        init_time = time.time() - start_time
+        print(f"[OK] Pipeline initialized successfully in {init_time:.2f} seconds!")
+    except Exception as e:
+        print(f"[FAIL] Failed to initialize pipeline: {e}")
+        exit(1)
+
+    print(f"\nStep 2: Generating Explanation for {args.uri}")
+
+    start_time = time.time()
+
+    try:
+        json_response = generate_explanation_payload(args.uri, resources)
+
+        gen_time = time.time() - start_time
+        print(f"[OK] Payload generated successfully in {gen_time:.4f} seconds!\n")
+
+        # Ensure results directory exists
+        parsed_json = json.loads(json_response)
+        PAYLOAD_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with open(PAYLOAD_PATH, "w") as f:
+            json.dump(parsed_json, f)
+
+        print("--- Output Summary ---")
+        print(f"Metadata: {json.dumps(parsed_json.get('metadata'), indent=2)}")
+        print(f"Prediction: {json.dumps(parsed_json.get('prediction'), indent=2)}")
+        print(f"Nodes Extracted: {len(parsed_json.get('graph', {}).get('nodes', []))}")
+        print(f"Edges Extracted: {len(parsed_json.get('graph', {}).get('links', []))}")
+
+    except Exception as e:
+        print(f"[FAIL] Failed to generate payload: {e}")
