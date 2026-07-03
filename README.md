@@ -62,3 +62,5 @@ Open a **Git Bash**, **WSL**, or **MSYS2** terminal and run:
 ```bash
 ./run_pipeline.sh
 ```
+### Note 
+**`If .sh does not execute properly, please run each step mentioned in the .sh file manually in the terminal.`**

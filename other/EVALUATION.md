@@ -1,6 +1,6 @@
 # GNNExplainer Evaluation Documentation
 
-This document explains the evaluation pipeline implemented in [Evaluate_GNNExplainer.py](file:///home/vaibhav/Documents/xai/mutag_project/Evaluate_GNNExplainer.py), focusing on the implementation of custom metrics (Fidelity and Sparsity) and explaining the technical reasons why built-in PyTorch Geometric (`PyG`) metrics could not be used.
+This document explains the evaluation pipeline implemented in [Evaluate_GNNExplainer.py], focusing on the implementation of custom metrics (Fidelity and Sparsity) and explaining the technical reasons why built-in PyTorch Geometric (`PyG`) metrics could not be used.
 
 ---
 
@@ -42,7 +42,7 @@ During development, the built-in metrics from `torch_geometric.explain.metric` (
   *(where the subgraph is the graph containing only the explanation features)*
 
 ### Top-K Sparsity
-* **The Issue**: Standard sparsity measures the fraction of edge weights below a threshold. However, since the visualization tool ([visualizer.html](file:///home/vaibhav/Documents/xai/mutag_project/visualizer.html)) displays only the top $k=10$ most important edges, standard sparsity does not represent what the user actually sees.
+* **The Issue**: Standard sparsity measures the fraction of edge weights below a threshold. However, since the visualization tool ([visualizer.html]) displays only the top $k=10$ most important edges, standard sparsity does not represent what the user actually sees.
 * **Our Solution**: We implemented a custom top-k sparsity metric:
   1. Identifies the top $k=10$ edges by importance score.
   2. Finds the set of incident nodes connected to those top-k edges.

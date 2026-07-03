@@ -1,6 +1,6 @@
 # Data Preprocessing Documentation
 
-This document explains the data pipeline implemented in [data_preprocessing.py](file:///home/vaibhav/Documents/xai/mutag_project/data_preprocessing.py), detailing how raw semantic web data is converted into graph representations suitable for deep learning.
+This document explains the data pipeline implemented in [data_preprocessing.py], detailing how raw semantic web data is converted into graph representations suitable for deep learning.
 
 ---
 
@@ -20,7 +20,7 @@ The pipeline starts with raw relational molecular data represented as a Resource
 
 ## 2. Processing Pipeline
 
-The script [data_preprocessing.py](file:///home/vaibhav/Documents/xai/mutag_project/data_preprocessing.py) executes the following sequential steps to parse and convert the knowledge graph:
+The script [data_preprocessing.py] executes the following sequential steps to parse and convert the knowledge graph:
 
 ### Step A: RDF Graph Parsing
 The script utilizes the `rdflib` library to load and parse the raw `.nt` file (`mutag_stripped.nt`) into an in-memory graph structure. 
@@ -84,4 +84,4 @@ Each molecule's structured features are compiled into a PyTorch Geometric (`PyG`
 
 * **File**: `mutag-hetero/pyg_dataset.pt`
 * **Format**: A serialized list of PyTorch Geometric `Data` objects.
-* **Usage**: This file is loaded directly by [RGCN_Train.py](file:///home/vaibhav/Documents/xai/mutag_project/RGCN_Train.py), [RGCN_Kfold.py](file:///home/vaibhav/Documents/xai/mutag_project/RGCN_Kfold.py), and [GNNExplainer.py](file:///home/vaibhav/Documents/xai/mutag_project/GNNExplainer.py) to train and explain the GNN model without repeating the costly RDF-parsing operations.
+* **Usage**: This file is loaded directly by [RGCN_Train.py], [RGCN_Kfold.py], and [GNNExplainer.py] to train and explain the GNN model without repeating the costly RDF-parsing operations.

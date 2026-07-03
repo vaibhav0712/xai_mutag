@@ -1,8 +1,10 @@
 #!/bin/bash
 
 # Exit immediately if a command exits with a non-zero status
+# If you are running it manually Ignore the code block below.
 set -e
 
+# If you are running it manually Ignore the code block below.
 # Detect Python command (use python3 if python is not available/mapped)
 PYTHON_CMD="python"
 if ! command -v python &> /dev/null; then
@@ -14,6 +16,7 @@ if ! command -v python &> /dev/null; then
     fi
 fi
 
+# START FROM HERE IF YOU WANT TO RUN IT MANUALLY EACH COMMAND BELOW
 echo "=================================================="
 echo " Starting Mutagenicity XAI GNN Pipeline"
 echo "=================================================="
