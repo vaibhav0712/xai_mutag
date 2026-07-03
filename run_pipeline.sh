@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Exit immediately if a command exits with a non-zero status
-# If you are running it manually Ignore the code block below.
-set -e
-
 # If you are running it manually Ignore the code block below.
 # Detect Python command (use python3 if python is not available/mapped)
 PYTHON_CMD="python"
