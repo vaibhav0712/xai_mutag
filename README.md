@@ -30,11 +30,8 @@ The active environment uses **Python 3.12.13** under the environment name `xai`.
 conda create -n xai python=3.12.13 -y
 conda activate xai
 
-# Install PyTorch (CUDA or CPU version)
-conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
-
-# Install PyTorch Geometric, RDFlib, and other utilities
-pip install torch-geometric rdflib pandas numpy scikit-learn tqdm
+# Install necessary dependencies
+pip install -r requirements.txt
 ```
 
 ---
