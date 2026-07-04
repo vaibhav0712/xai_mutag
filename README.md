@@ -55,7 +55,7 @@ chmod +x run_pipeline.sh
 ```
 
 ### Running on Windows:
-Open a **Git Bash**, **WSL**, or **MSYS2** terminal and run (Recommended to use Git Bash for better compatibility Windows inbuilt terminal will behave differently):
+Open a **Git Bash**, **WSL**, or **MSYS2** terminal and run (Recommended to use Git Bash for better compatibility because Windows inbuilt command line or powershell does not support bash scripts):
 ```bash
 ./run_pipeline.sh
 ```
