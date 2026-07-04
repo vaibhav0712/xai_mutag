@@ -147,7 +147,6 @@ atom_counter = Counter()
 for mol in dataset:
     for atom in mol.atoms:
         atom_counter[atom["type"]] += 1
-print(atom_counter)
 bond_counter = Counter()
 for mol in dataset:
     for _, _, bond in mol.bonds:
