@@ -1,32 +1,17 @@
-# Requirements file for Mutagenicity XAI GNN Project
-# Generated based on actual imports across project files.
-
-# ==============================================================================
-# CUDA / GPU ACCELERATION NOTE:
-# If you want GPU/CUDA acceleration, install PyTorch with CUDA support first:
-#
-# For CUDA 12.4 (matches current system configuration):
-pip install torch==2.6.0 --extra-index-url https://download.pytorch.org/whl/cu124
-#
-# For CUDA 12.1:
-#   pip install torch==2.6.0 --extra-index-url https://download.pytorch.org/whl/cu121
-#
-# For CPU-only:
-#   pip install torch==2.6.0 --extra-index-url https://download.pytorch.org/whl/cpu
-# ==============================================================================
-
-# Core Scientific & Data Processing
 numpy==1.26.4
 pandas==2.3.3
 scikit-learn==1.8.0
 
-# Deep Learning & Graph Neural Networks
 # torch==2.6.0
 torch-geometric==2.7.0
-
-# RDF/Semantic Web Utilities
 rdflib==7.6.0
 
-# Visualization & Progress Bars
 matplotlib==3.10.8
 tqdm==4.67.3
+
+# For CPU-only:
+#torch==2.6.0 --extra-index-url https://download.pytorch.org/whl/cpu
+# For CUDA 12.4
+torch==2.6.0 --extra-index-url https://download.pytorch.org/whl/cu124
+
+

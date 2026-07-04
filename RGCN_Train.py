@@ -142,7 +142,6 @@ if __name__ == "__main__":
         hidden_channels=HIDDEN_CHANNELS,
         num_classes=2,
     ).to(device)
-
     optimizer = torch.optim.Adam(model.parameters(), lr=LR)
     criterion = torch.nn.CrossEntropyLoss()
 
@@ -175,21 +174,29 @@ if __name__ == "__main__":
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
     # Style configuration
-    plt.rcParams['figure.facecolor'] = 'white'
-    plt.rcParams['axes.facecolor'] = 'white'
-    plt.rcParams['font.size'] = 10
-    plt.rcParams['axes.edgecolor'] = '#CCCCCC'
-    plt.rcParams['axes.linewidth'] = 0.8
+    plt.rcParams["figure.facecolor"] = "white"
+    plt.rcParams["axes.facecolor"] = "white"
+    plt.rcParams["font.size"] = 10
+    plt.rcParams["axes.edgecolor"] = "#CCCCCC"
+    plt.rcParams["axes.linewidth"] = 0.8
 
     # 1. Loss Plot
     plt.figure(figsize=(8, 5))
-    plt.plot(epochs_list, loss_list, color='#1F77B4', linewidth=2.0, label='Training Loss')
-    plt.title('Training Loss vs. Epochs', fontsize=13, pad=15, fontweight='bold', color='#333333')
-    plt.xlabel('Epoch', fontsize=11, labelpad=8, color='#333333')
-    plt.ylabel('Loss', fontsize=11, labelpad=8, color='#333333')
-    plt.grid(True, linestyle='--', alpha=0.5, color='#DDDDDD')
+    plt.plot(
+        epochs_list, loss_list, color="#1F77B4", linewidth=2.0, label="Training Loss"
+    )
+    plt.title(
+        "Training Loss vs. Epochs",
+        fontsize=13,
+        pad=15,
+        fontweight="bold",
+        color="#333333",
+    )
+    plt.xlabel("Epoch", fontsize=11, labelpad=8, color="#333333")
+    plt.ylabel("Loss", fontsize=11, labelpad=8, color="#333333")
+    plt.grid(True, linestyle="--", alpha=0.5, color="#DDDDDD")
     plt.xlim(1, EPOCHS)
-    plt.legend(frameon=True, facecolor='white', edgecolor='none')
+    plt.legend(frameon=True, facecolor="white", edgecolor="none")
     plt.tight_layout()
     loss_plot_path = RESULTS_DIR / "loss_plot.png"
     plt.savefig(loss_plot_path, dpi=300)
@@ -198,15 +205,34 @@ if __name__ == "__main__":
 
     # 2. Accuracy Plot
     plt.figure(figsize=(8, 5))
-    plt.plot(epochs_list, train_acc_list, color='#2CA02C', linewidth=2.0, label='Train Accuracy')
-    plt.plot(epochs_list, val_acc_list, color='#FF7F0E', linewidth=2.0, linestyle='--', label='Val Accuracy')
-    plt.title('Model Accuracy vs. Epochs', fontsize=13, pad=15, fontweight='bold', color='#333333')
-    plt.xlabel('Epoch', fontsize=11, labelpad=8, color='#333333')
-    plt.ylabel('Accuracy', fontsize=11, labelpad=8, color='#333333')
-    plt.grid(True, linestyle='--', alpha=0.5, color='#DDDDDD')
+    plt.plot(
+        epochs_list,
+        train_acc_list,
+        color="#2CA02C",
+        linewidth=2.0,
+        label="Train Accuracy",
+    )
+    plt.plot(
+        epochs_list,
+        val_acc_list,
+        color="#FF7F0E",
+        linewidth=2.0,
+        linestyle="--",
+        label="Val Accuracy",
+    )
+    plt.title(
+        "Model Accuracy vs. Epochs",
+        fontsize=13,
+        pad=15,
+        fontweight="bold",
+        color="#333333",
+    )
+    plt.xlabel("Epoch", fontsize=11, labelpad=8, color="#333333")
+    plt.ylabel("Accuracy", fontsize=11, labelpad=8, color="#333333")
+    plt.grid(True, linestyle="--", alpha=0.5, color="#DDDDDD")
     plt.xlim(1, EPOCHS)
     plt.ylim(0, 1.0)
-    plt.legend(frameon=True, facecolor='white', edgecolor='none')
+    plt.legend(frameon=True, facecolor="white", edgecolor="none")
     plt.tight_layout()
     accuracy_plot_path = RESULTS_DIR / "accuracy_plot.png"
     plt.savefig(accuracy_plot_path, dpi=300)

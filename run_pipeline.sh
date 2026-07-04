@@ -32,28 +32,28 @@ echo "[2/5] Training the RGCN model..."
 echo "=================================================="
 $PYTHON_CMD RGCN_Train.py
 
-# 3. K-Fold Cross Validation
-echo ""
-echo "=================================================="
-echo "[3/5] Evaluating performance with 10-fold cross-validation..."
-echo "=================================================="
-$PYTHON_CMD RGCN_Kfold.py
+# # 3. K-Fold Cross Validation
+# echo ""
+# echo "=================================================="
+# echo "[3/5] Evaluating performance with 10-fold cross-validation..."
+# echo "=================================================="
+# $PYTHON_CMD RGCN_Kfold.py
 
-# 4. GNN Explainer
-echo ""
-echo "=================================================="
-echo "[4/5] Running GNNExplainer for molecule explanation..."
-echo "=================================================="
-$PYTHON_CMD GNNExplainer.py
+# # 4. GNN Explainer
+# echo ""
+# echo "=================================================="
+# echo "[4/5] Running GNNExplainer for molecule explanation..."
+# echo "=================================================="
+# $PYTHON_CMD GNNExplainer.py
 
-# 5. Evaluation of explanations
-echo ""
-echo "=================================================="
-echo "[5/5] Evaluating GNNExplainer metrics..."
-echo "=================================================="
-$PYTHON_CMD Evaluate_GNNExplainer.py
+# # 5. Evaluation of explanations
+# echo ""
+# echo "=================================================="
+# echo "[5/5] Evaluating GNNExplainer metrics..."
+# echo "=================================================="
+# $PYTHON_CMD Evaluate_GNNExplainer.py
 
-echo ""
-echo "=================================================="
-echo " Pipeline completed successfully!"
-echo "=================================================="
+# echo ""
+# echo "=================================================="
+# echo " Pipeline completed successfully!"
+# echo "=================================================="
