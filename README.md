@@ -61,3 +61,24 @@ Open a **Git Bash**, **WSL**, or **MSYS2** terminal and run (Recommended to use 
 ```
 ### Note 
 **`If .sh does not execute properly, please run each step mentioned in the .sh file manually in the terminal.`**
+
+---
+
+## Standalone Visualization Dashboard
+
+This project is split into two distinct parts:
+1. **Model Pipeline**: The core training, evaluation, cross-validation, and explanation generation scripts contained in this repository.
+2. **Interactive Visualization Dashboard**: A standalone dashboard application developed specifically to visualize the explanations produced by the GNNExplainer (showing beautiful graphical representations of molecular subgraphs and importance scores).
+
+To prevent version conflicts, installation bloat, and dependency issues within the core pipeline directory, the dashboard has been decoupled and is maintained in its own dedicated repository:
+
+👉 **Dashboard Repository**: [xai_mutag_dashboard](https://github.com/vaibhav0712/xai_mutag_dashboard)
+
+### Why is it in a separate repository?
+Although we were originally instructed to keep all code in a single folder, the dashboard application is large and introduces a heavy frontend/visualization stack. Separating the dashboard into its own repository ensures:
+- **No Dependency Conflicts**: Avoids coupling the visualization dependencies with the core GNN training and explanation pipeline.
+- **Separation of Concerns**: Keeps the model execution and user interface codebase distinct and clean.
+- **Ease of Deployment**: Simplifies deployment, containerization, and local execution.
+
+### How to Run the Dashboard
+The dashboard is fully dockerized and can be launched easily with a single Docker command. Please refer to the [xai_mutag_dashboard](https://github.com/vaibhav0712/xai_mutag_dashboard) repository for clear instructions on how to run, configure, and use the application.
