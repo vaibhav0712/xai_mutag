@@ -130,6 +130,12 @@ if __name__ == "__main__":
         num_workers=0,
     )
 
+    print(
+        "Train N, Test N, Val N = ",
+        len(train_idx),
+        len(test_idx),
+        len(val_idx),
+    )
     # Dynamically extract dimensions from the loaded data
     in_channels = pyg_dataset[0].x.size(1)
 
